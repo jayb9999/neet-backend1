@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "postinstall": "npm rebuild sqlite3 && npm rebuild bcrypt",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -18,5 +17,13 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "sqlite3": "^5.1.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayb9999/neet-backend1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jayb9999/neet-backend1/issues"
+  },
+  "homepage": "https://github.com/jayb9999/neet-backend1#readme"
 }

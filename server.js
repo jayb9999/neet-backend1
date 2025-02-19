@@ -252,3 +252,6 @@ app.get('/results/:user_id/:test_id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
+
+
+//"postinstall": "npm rebuild sqlite3 && npm rebuild bcrypt",
