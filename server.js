@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs');
-//const bcrypt = require("bcryptjs");
+//const bcrypt = require("bcrypt");
 //const cookieParser = require("cookie-parser");
 //require("dotenv").config()
 
@@ -143,7 +143,7 @@ app.post('/login', async (req, res) => {
 
   // Debugging: log the password from the request and the database
   console.log('Password from request body:', password);
-  console.log('Password from database:', dbUser.password);
+  //console.log('Password from database:', dbUser.password);
   console.log(dbUser)
 
   if (dbUser === undefined) {
