@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 //const bcrypt = require("bcryptjs");
 //const cookieParser = require("cookie-parser");
 //require("dotenv").config()
