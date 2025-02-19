@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 //const bcrypt = require("bcryptjs");
 //const cookieParser = require("cookie-parser");
 //require("dotenv").config()
@@ -96,7 +96,7 @@ app.post('/register', async (req, res) => {
   }
 
   // Hash the password
-  const hashedPassword = await bcrypt.hash(password, 10);
+  //const hashedPassword = await bcrypt.hash(password, 10);
 
   // Check if the user already exists
   const checkUserQry = `SELECT * FROM users WHERE username = ?`;
@@ -114,7 +114,7 @@ app.post('/register', async (req, res) => {
 
   // Insert the new user into the database
   const query = `INSERT INTO users (username, password) VALUES (?, ?)`;
-  db.run(query, [username, hashedPassword], (err) => {
+  db.run(query, [username, password], (err) => {
     if (err) {
       return res.status(400).send({ error: err.message });
     }
@@ -156,7 +156,7 @@ app.post('/login', async (req, res) => {
 
     // Compare the plain password with the hashed password stored in the DB
     try {
-      const isPasswordMatched = await bcrypt.compare(password, dbUser.password);
+      const isPasswordMatched = password //await bcrypt.compare(password, dbUser.password);
 
       if (isPasswordMatched) {
         // Generate JWT token
