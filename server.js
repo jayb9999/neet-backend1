@@ -142,9 +142,9 @@ app.post('/login', async (req, res) => {
   });
 
   // Debugging: log the password from the request and the database
-  // console.log('Password from request body:', password);
-  // console.log('Password from database:', dbUser.password);
-  // console.log(dbUser)
+  console.log('Password from request body:', password);
+  console.log('Password from database:', dbUser.password);
+  console.log(dbUser)
 
   if (dbUser === undefined) {
     return res.status(400).send("Invalid User");
@@ -156,7 +156,7 @@ app.post('/login', async (req, res) => {
 
     // Compare the plain password with the hashed password stored in the DB
     try {
-      const isPasswordMatched = await bcrypt.compare(password, dbUser.password); //dbUser.password 
+      const isPasswordMatched = await bcrypt.compare(password, dbUser.password); 
 
       if (isPasswordMatched) {
         // Generate JWT token
