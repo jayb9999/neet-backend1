@@ -156,7 +156,7 @@ app.post('/login', async (req, res) => {
 
     // Compare the plain password with the hashed password stored in the DB
     try {
-      const isPasswordMatched = password === await bcrypt.compare(password, dbUser.password); //dbUser.password 
+      const isPasswordMatched = await bcrypt.compare(password, dbUser.password); //dbUser.password 
 
       if (isPasswordMatched) {
         // Generate JWT token
