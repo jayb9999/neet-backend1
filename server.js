@@ -12,7 +12,7 @@ const jwt = require('jsonwebtoken')
 
 const app = express();
 const MY_SECRET_TOKEN = process.env.JWT_SECRET || "defaultsecret";
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json())
 //app.use(cookieParser())
@@ -156,7 +156,7 @@ app.post('/login', async (req, res) => {
 
     // Compare the plain password with the hashed password stored in the DB
     try {
-      const isPasswordMatched = password //await bcrypt.compare(password, dbUser.password);
+      const isPasswordMatched = password === dbUser.password //await bcrypt.compare(password, dbUser.password);
 
       if (isPasswordMatched) {
         // Generate JWT token
