@@ -142,9 +142,9 @@ app.post('/login', async (req, res) => {
   });
 
   // Debugging: log the password from the request and the database
-  console.log('Password from request body:', password);
+  //console.log('Password from request body:', password);
   //console.log('Password from database:', dbUser.password);
-  console.log(dbUser)
+  //console.log(dbUser)
 
   if (dbUser === undefined) {
     return res.status(400).send("Invalid User");
@@ -161,7 +161,8 @@ app.post('/login', async (req, res) => {
       if (isPasswordMatched) {
         // Generate JWT token
         const payload = { username: username };
-        const jwtToken = jwt.sign(payload, MY_SECRET_TOKEN, { expiresIn: "1h" });
+        const jwtToken = jwt.sign(payload, MY_SECRET_TOKEN, { expiresIn: "24h" });
+        console.log(jwtToken)
         res.send({ jwtToken });
       } else {
         res.status(400).send("Invalid Password");
